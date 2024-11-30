@@ -1,3 +1,6 @@
+import { supabase } from '../supabaseClient';
+import { ArtworkType } from '../types';
+
 export const fetchRandomArtworks = async (count: number = 4) => {
     //calculated in jupyter notebook in DS3000 folder
     const maxObjectID = 484956; 
@@ -45,4 +48,31 @@ export const fetchRandomArtworks = async (count: number = 4) => {
       creditLine: data.creditLine,
       objectDate: data.objectDate,
     };
+  };
+
+  export const saveLikedArtwork = async (artwork: ArtworkType, userID: string) => {
+    const { data, error } = await supabase.from('liked_artworks').insert([
+    {
+      user_id: userID,
+      artwork_data: artwork,
+    },
+  ]);
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+  };
+
+  export const fetchLikedArtworks = async (userId: string): Promise<ArtworkType[]> => {
+    //ensure the UserID matches!
+    const { data, error } = await supabase.from('liked_artworks').select('artwork_data').eq('user_id', userId);
+  
+    if (error) {
+      throw error;
+    }
+  
+    //extract artwork_data from the returned data
+    return data.map((item) => item.artwork_data as ArtworkType);
   };

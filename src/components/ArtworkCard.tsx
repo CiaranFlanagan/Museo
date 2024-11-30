@@ -30,7 +30,7 @@ const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork, onLike }) => {
         className={`w-full h-auto max-h-full transition-opacity duration-500 ${
           showInfo ? "opacity-50" : "opacity-100"
         }`}
-        style={{ objectFit: "contain" }} 
+        style={{ objectFit: "contain" }}
       />
       {showInfo && (
         <div className="absolute inset-0 bg-black bg-opacity-75 text-white p-4 flex flex-col justify-center transition-opacity duration-500">
@@ -42,7 +42,7 @@ const ArtworkCard: React.FC<ArtworkCardProps> = ({ artwork, onLike }) => {
       )}
       <button
         onClick={(e) => {
-          e.stopPropagation(); 
+          e.stopPropagation();
           onLike(artwork);
         }}
         className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md"

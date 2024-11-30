@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { fetchRandomArtworks } from "../services/artworkService";
 import ArtworkCard from "./ArtworkCard";
 import { ArtworkType } from "../types";
+import { saveLikedArtwork } from '../services/artworkService';
+import { useAuth } from '../context/AuthContext';
 
 const ArtworksGrid: React.FC = () => {
   const [artworks, setArtworks] = useState<ArtworkType[]>([]);
@@ -30,11 +32,22 @@ const ArtworksGrid: React.FC = () => {
     loadArtworks();
   }, []);
 
+  const { user } = useAuth();
 
-  const handleLike = (artwork: ArtworkType) => {
-    //log the liked artwork until i set up databse
-    console.log("Liked artwork:", artwork);
-  };
+  const handleLike = async (artwork: ArtworkType) => {
+   if (!user) {
+    console.error('User is not logged in!');
+    return;
+   }
+
+   try {
+    await saveLikedArtwork(artwork, user.id);
+    console.log('Artwork has been liked:', artwork);
+    } catch (error) {
+      console.error('Artworl failed to save:', error);
+    }
+   };
+
 
   return (
     <div className="relative p-4 min-h-screen">

@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Layout from "./components/Layout";
+import Favorites from "./components/Favorites";
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,16 @@ const App: React.FC = () => {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route
+        path="/favorites"
+        element={
+          <Layout>
+            <ProtectedRoute>
+              <Favorites />
+            </ProtectedRoute>
+          </Layout>
+        }
+      />
     </Routes>
   );
 };
