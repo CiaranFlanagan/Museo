@@ -4,6 +4,7 @@ import { ArtworkType } from "../types";
 import { fetchLikedArtworks } from "../services/artworkService";
 import ArtworkCard from "./ArtworkCard";
 import { useAuth } from "../context/AuthContext";
+import "../index.css";
 
 const Favorites: React.FC = () => {
   const [artworks, setArtworks] = useState<ArtworkType[]>([]);

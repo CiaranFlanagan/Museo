@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { fetchRandomArtworks } from "../services/artworkService";
 import ArtworkCard from "./ArtworkCard";
 import { ArtworkType } from "../types";
-import { saveLikedArtwork } from '../services/artworkService';
-import { useAuth } from '../context/AuthContext';
+import { saveLikedArtwork } from "../services/artworkService";
+import { useAuth } from "../context/AuthContext";
+import "../index.css";
 
 const ArtworksGrid: React.FC = () => {
   const [artworks, setArtworks] = useState<ArtworkType[]>([]);
@@ -35,24 +36,23 @@ const ArtworksGrid: React.FC = () => {
   const { user } = useAuth();
 
   const handleLike = async (artwork: ArtworkType) => {
-   if (!user) {
-    console.error('User is not logged in!');
-    return;
-   }
-
-   try {
-    await saveLikedArtwork(artwork, user.id);
-    console.log('Artwork has been liked:', artwork);
-    } catch (error) {
-      console.error('Artworl failed to save:', error);
+    if (!user) {
+      console.error("User is not logged in!");
+      return;
     }
-   };
 
+    try {
+      await saveLikedArtwork(artwork, user.id);
+      console.log("Artwork has been liked:", artwork);
+    } catch (error) {
+      console.error("Artworl failed to save:", error);
+    }
+  };
 
   return (
     <div className="relative p-4 min-h-screen">
       <button
-      //should call loadArtowks when the user want new artworks
+        //should call loadArtowks when the user want new artworks
         onClick={loadArtworks}
         className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-md"
       >

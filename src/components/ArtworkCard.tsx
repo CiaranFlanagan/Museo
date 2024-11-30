@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ArtworkType } from "../types";
+import '../index.css';
 
 //defines props expected by an Artwork cards
 interface ArtworkCardProps {
