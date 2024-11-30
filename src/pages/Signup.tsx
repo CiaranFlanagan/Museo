@@ -8,6 +8,7 @@ const Signup: React.FC = () => {
   const { signUp } = useAuth();
   const navigate = useNavigate();
 
+  //on form submission ...
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {

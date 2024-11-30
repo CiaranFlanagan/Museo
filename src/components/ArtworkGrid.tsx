@@ -13,6 +13,7 @@ const ArtworksGrid: React.FC = () => {
     setError(null);
     try {
       const data = await fetchRandomArtworks();
+      //sets the artwoks from the api, handled by useState
       setArtworks(data);
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -29,6 +30,7 @@ const ArtworksGrid: React.FC = () => {
     loadArtworks();
   }, []);
 
+
   const handleLike = (artwork: ArtworkType) => {
     //log the liked artwork until i set up databse
     console.log("Liked artwork:", artwork);
@@ -37,6 +39,7 @@ const ArtworksGrid: React.FC = () => {
   return (
     <div className="relative p-4 min-h-screen">
       <button
+      //should call loadArtowks when the user want new artworks
         onClick={loadArtworks}
         className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-md"
       >
@@ -45,6 +48,8 @@ const ArtworksGrid: React.FC = () => {
       {loading && <p>Loading artworks...</p>}
       {error && <p className="text-red-500">{error}</p>}
       <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full h-full">
+        {/*map a function that generates tsx for each artwork, passing each 
+        artwork to ArtworkCard as a prop, and onLike as handleLike*/}
         {artworks.map((artwork) => (
           <div key={artwork.id} className="flex items-center justify-center">
             <ArtworkCard artwork={artwork} onLike={handleLike} />

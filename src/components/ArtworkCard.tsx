@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ArtworkType } from "../types";
 
+//defines props expected by an Artwork cards
 interface ArtworkCardProps {
   artwork: ArtworkType;
   onLike: (artwork: ArtworkType) => void;

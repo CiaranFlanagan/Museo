@@ -7,6 +7,12 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({children}) => {
+    /*
+    const auth = useAuth(); // auth is an object containing { user, login, logout }
+    const user = auth.user; // Get the `user` from `auth`.
+    */
+   //useAuth returns object containing { user, login, logout }
+   //extracts user directly this way
     const { user } = useAuth();
 
     if(!user)  {

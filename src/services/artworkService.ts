@@ -18,6 +18,7 @@ export const fetchRandomArtworks = async (count: number = 4) => {
     return artworks;
   };
   
+  //helper
   const checkIfObjectExists = async (objectID: number) => {
     const response = await fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`
@@ -25,6 +26,7 @@ export const fetchRandomArtworks = async (count: number = 4) => {
     return response.status === 200;
   };
   
+  //helper
   const fetchArtworkByID = async (objectID: number) => {
     const response = await fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`

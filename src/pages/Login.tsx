@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
+//Login component
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signIn } = useAuth();
   const navigate = useNavigate();
 
+  //when the login form is submitted...
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -16,6 +18,7 @@ const Login: React.FC = () => {
         navigate("/");
       }
     } catch (error) {
+      //should change to a popup at some point
       console.error("Failed to sign in:", error);
     }
   };
