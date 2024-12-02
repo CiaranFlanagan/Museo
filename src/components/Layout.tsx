@@ -1,7 +1,7 @@
 // src/components/Layout.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import './index.css';
+import "../index.css";
 
 //component that wraps authenticated pages in a standard layout
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
