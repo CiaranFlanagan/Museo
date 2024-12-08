@@ -1,11 +1,6 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-} from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { supabase } from "../supabaseClient";
-import { User } from "@supabase/supabase-js";
+import { User, Session, AuthChangeEvent } from "@supabase/supabase-js";
 
 // Define the shape of the authentication context
 // - `user`: Represents the currently logged-in user or `null` if no user is logged in.
@@ -45,7 +40,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
       // Listen for authentication state changes (e.g., login, logout).
       const { data: authListener } = supabase.auth.onAuthStateChange(
-        (_event, session) => {
+        (event: AuthChangeEvent, session: Session | null) => {
           // Update the `user` state when the auth state changes.
           setUser(session?.user ?? null);
         }
