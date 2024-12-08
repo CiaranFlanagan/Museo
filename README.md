@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+Great! I'll include the deployed site URL in your README. Here's the updated draft:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# Museo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Museo is a small fun project developed to refresh front-end development skills. It pulls data from the Met API and displays artworks to users, allowing them to save their favorites to their profile.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Fetches and displays artworks from the Met API
+- Allows users to save favorite artworks to their profile
+- Built with React and TypeScript
+- Styled with TailwindCSS
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+To install and run this project locally, follow these steps:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/CiaranFlanagan/Museo.git
+   cd Museo
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. Install the dependencies:
+   ```sh
+   npm install
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+
+## Usage
+
+Once the development server is running, you can access the application at `http://localhost:3000`. Browse through the artworks and save your favorites to your profile.
+
+You can also visit the deployed version of the site at [Museo](https://museo-cf.netlify.app/).
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions or improvements, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any questions or inquiries, please contact [Ciaran Flanagan](https://github.com/CiaranFlanagan).
+
+---
+
+Feel free to make any adjustments or additions as needed!
