@@ -40,7 +40,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
       // Listen for authentication state changes (e.g., login, logout).
       const { data: authListener } = supabase.auth.onAuthStateChange(
-        (event: AuthChangeEvent, session: Session | null) => {
+        (_event: AuthChangeEvent, session: Session | null) => {
           // Update the `user` state when the auth state changes.
           setUser(session?.user ?? null);
         }
