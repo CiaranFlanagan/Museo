@@ -54,7 +54,7 @@ const ArtworksGrid: React.FC = () => {
       <button
         //should call loadArtowks when the user want new artworks
         onClick={loadArtworks}
-        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+        className="mb-4 px-4 py-2 bg-dark-brown text-white rounded-md"
       >
         Get New Artworks
       </button>

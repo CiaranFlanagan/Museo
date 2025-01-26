@@ -10,6 +10,9 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
 .container {
   @apply max-w-7xl mx-auto px-4;
 }
@@ -70,6 +73,10 @@ body {
   @apply bg-blue-500 text-white text-center py-2 fixed bottom-0 w-full;
 }
 
+.text-dark-brown {
+  color: #8b4513;
+}
+
 .bg-light-beige {
   background-color: #f5f5dc; /* Light beige color */
 }
@@ -87,4 +94,8 @@ body {
   box-shadow: 0 0 0 5px #d2b48c, /* Light brown color for the inner border */
               0 0 0 10px #8b4513; /* Dark brown color for the outer border */
   border-radius: 10px; /* Optional: rounded corners for the frame */
+}
+
+.profile-page {
+  background-color: red;
 }
