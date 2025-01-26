@@ -1,4 +1,5 @@
-/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +7,7 @@
 /* Custom global styles */
 body {
   @apply bg-gray-100 text-gray-900;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -66,4 +68,23 @@ body {
 
 .footer {
   @apply bg-blue-500 text-white text-center py-2 fixed bottom-0 w-full;
+}
+
+.bg-light-beige {
+  background-color: #f5f5dc; /* Light beige color */
+}
+
+.bg-dark-brown {
+  background-color: #8b4513; /* Dark brown color */
+}
+
+.hover\:bg-dark-brown-dark:hover {
+  background-color: #5a2e0d; /* Darker brown color for hover effect */
+}
+
+.picture-frame {
+  border: 10px solid #8b4513; /* Dark brown color for the frame */
+  box-shadow: 0 0 0 5px #d2b48c, /* Light brown color for the inner border */
+              0 0 0 10px #8b4513; /* Dark brown color for the outer border */
+  border-radius: 10px; /* Optional: rounded corners for the frame */
 }

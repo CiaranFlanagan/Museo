@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { fetchLikedArtworks } from '../services/likedArtworkService';
-import ArtworkCard from '../components/ArtworkCard';
-import { ArtworkType } from '../types';
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { fetchLikedArtworks } from "../services/likedArtworkService";
+import ArtworkCard from "../components/ArtworkCard";
+import { ArtworkType } from "../types";
 
 const Profile: React.FC = () => {
   const { user } = useAuth();
@@ -19,7 +19,7 @@ const Profile: React.FC = () => {
           const data = await fetchLikedArtworks(user.id);
           setLikedArtworks(data);
         } catch {
-          setError('Failed to load liked artworks.');
+          setError("Failed to load liked artworks.");
         } finally {
           setLoading(false);
         }
